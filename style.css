@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;900&family=Inter:wght@400;500;600;700&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Overall app background */
+.stApp {
+    background: linear-gradient(180deg, #1B4332 0%, #10241E 100%);
+}
+
+/* Center content width control */
+.block-container {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+    max-width: 720px;
+}
+
+/* Title */
+h1 {
+    font-family: 'Fraunces', serif !important;
+    color: #F7F4ED !important;
+    font-weight: 900 !important;
+    letter-spacing: -1px;
+    font-size: 2.6rem !important;
+    margin-bottom: 0.2rem !important;
+}
+
+/* Subtitle text under title */
+.stMarkdown p {
+    color: #A9BDAE !important;
+    font-size: 1.02rem;
+    line-height: 1.5;
+}
+
+/* File uploader label */
+[data-testid="stFileUploaderDropzone"] label,
+.stFileUploader label p {
+    color: #F7F4ED !important;
+    font-weight: 600 !important;
+}
+
+/* Upload box */
+[data-testid="stFileUploaderDropzone"] {
+    background-color: #F7F4ED !important;
+    border: 2px dashed #D4A24C !important;
+    border-radius: 14px !important;
+    transition: border-color 0.2s ease;
+}
+[data-testid="stFileUploaderDropzone"]:hover {
+    border-color: #E8B96A !important;
+}
+
+/* Browse Files button inside uploader */
+[data-testid="stFileUploaderDropzone"] button {
+    background-color: #1B4332 !important;
+    color: #F7F4ED !important;
+    border-radius: 8px !important;
+    border: none !important;
+    font-weight: 600 !important;
+}
+[data-testid="stFileUploaderDropzone"] button:hover {
+    background-color: #2D6A4F !important;
+}
+
+/* Uploaded image container */
+[data-testid="stImage"] img {
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    margin-top: 0.5rem;
+}
+[data-testid="stImage"] figcaption {
+    color: #A9BDAE !important;
+    font-size: 0.85rem;
+    text-align: center;
+    margin-top: 0.4rem;
+}
+
+/* Base card style for all alert boxes */
+div[data-testid="stAlertContainer"] {
+    border-radius: 12px !important;
+    padding: 20px !important;
+    margin-top: 14px !important;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+div[data-testid="stAlertContainer"] p {
+    font-size: 16px;
+    margin: 0 !important;
+}
+
+/* Success box = Disease result (main highlight) */
+div[data-testid="stAlertContainerSuccess"] {
+    background-color: #F7F4ED !important;
+    border-left: 6px solid #2D6A4F !important;
+}
+div[data-testid="stAlertContainerSuccess"] p {
+    color: #1B4332 !important;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 19px !important;
+}
+
+/* Info box = Treatment */
+div[data-testid="stAlertContainerInfo"] {
+    background-color: #EAF2EC !important;
+    border-left: 6px solid #D4A24C !important;
+}
+div[data-testid="stAlertContainerInfo"] p {
+    color: #1B4332 !important;
+}
+
+/* Warning box = Low confidence */
+div[data-testid="stAlertContainerWarning"] {
+    background-color: #FBEFDC !important;
+    border-left: 6px solid #C77B26 !important;
+}
+div[data-testid="stAlertContainerWarning"] p {
+    color: #6B4226 !important;
+}
+
+/* Confidence text */
+.stMarkdown strong {
+    color: #F7F4ED;
+}
+
+/* Spinner */
+.stSpinner > div {
+    color: #F7F4ED !important;
+}
+
+/* Divider-like hr if used */
+hr {
+    border-color: rgba(247,244,237,0.15) !important;
+}
