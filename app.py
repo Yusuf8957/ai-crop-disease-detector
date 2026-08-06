@@ -196,3 +196,20 @@ if img_source is not None:
         file_name=f"diagnosis_report_{datetime.now().strftime('%Y%m%d_%H%M')}.pdf",
         mime="application/pdf",
     )
+
+
+    # ---------- Footer ----------
+st.markdown("---")
+st.markdown(
+    """
+    <div style='text-align: center; padding: 20px 0;'>
+        <p style='color: #A9BDAE; font-size: 14px; margin-bottom: 4px;'>
+            🌾 Made with care by
+        </p>
+        <p style='color: #D4A24C; font-family: "Fraunces", serif; font-size: 20px; font-weight: 700; margin: 0;'>
+            Yusuf
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
