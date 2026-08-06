@@ -35,18 +35,20 @@ TensorFlow · Keras · MobileNetV2 · Streamlit · Pandas · fpdf2 · Custom CSS
 ---
 
 ## 📁 Folder Structure
+
+```
 crop-disease-detector/
-├── app.py # Main Streamlit app
-├── treatment_info.py # Disease → treatment/pesticide mapping
-├── style.css # Custom UI styling
+├── app.py                     # Main Streamlit app
+├── treatment_info.py          # Disease → treatment/pesticide mapping
+├── style.css                  # Custom UI styling
 ├── requirements.txt
 ├── runtime.txt
-├── .streamlit/config.toml # Theme config
+├── .streamlit/config.toml     # Theme config
 ├── model/
-│ ├── crop_disease_model.h5
-│ └── class_names.json
-└── samples/ # Demo images
-
+│   ├── crop_disease_model.h5
+│   └── class_names.json
+└── samples/                   # Demo images
+```
 
 
 ---
