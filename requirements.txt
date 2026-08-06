@@ -2,3 +2,5 @@ streamlit
 tensorflow
 pillow
 numpy
+pandas
+fpdf2

@@ -188,3 +188,159 @@ hr {
         font-size: 1.4rem !important;
     }
 }
+
+/* ============================================= */
+/* TABLE STYLING (Recommendation Summary) */
+/* ============================================= */
+[data-testid="stTable"] {
+    background-color: #F7F4ED !important;
+    border-radius: 14px !important;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.3);
+    border: 1px solid rgba(212,162,76,0.3);
+}
+
+[data-testid="stTable"] table {
+    background-color: #F7F4ED !important;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Header row */
+[data-testid="stTable"] th {
+    background-color: #1B4332 !important;
+    color: #F7F4ED !important;
+    font-weight: 700 !important;
+    font-family: 'Fraunces', serif;
+    padding: 14px 18px !important;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none !important;
+    border-bottom: 3px solid #D4A24C !important;
+}
+
+[data-testid="stTable"] th:first-child {
+    border-right: 2px solid rgba(212,162,76,0.4) !important;
+}
+
+/* Data cells */
+[data-testid="stTable"] td {
+    padding: 16px 18px !important;
+    font-size: 15px;
+    border: none !important;
+    border-bottom: 1px solid rgba(27,67,50,0.1) !important;
+}
+
+/* Field name column (first column) */
+[data-testid="stTable"] td:first-child {
+    background-color: #EAE6DA !important;
+    color: #1B4332 !important;
+    font-weight: 700 !important;
+    width: 35%;
+    border-right: 2px solid rgba(212,162,76,0.3) !important;
+}
+
+/* Details column (second column) */
+[data-testid="stTable"] td:last-child {
+    background-color: #F7F4ED !important;
+    color: #2D3B34 !important;
+}
+
+/* Remove border on last row */
+[data-testid="stTable"] tr:last-child td {
+    border-bottom: none !important;
+}
+
+/* Alternate subtle shading on details column rows for readability */
+[data-testid="stTable"] tr:nth-child(even) td:last-child {
+    background-color: #FBFAF6 !important;
+}
+
+/* "Recommendation Summary" heading */
+h4 {
+    color: #F7F4ED !important;
+    font-family: 'Fraunces', serif !important;
+}
+
+/* "Other Possible Matches" heading + caption */
+.stCaptionContainer, [data-testid="stCaptionContainer"] {
+    color: #A9BDAE !important;
+}
+
+/* Bullet list items (top-3 matches) */
+.stMarkdown ul li {
+    color: #F7F4ED !important;
+}
+.stMarkdown ul li strong {
+    color: #F7F4ED !important;
+}
+
+/* ============================================= */
+/* SAMPLE GALLERY - Uniform Image Sizing */
+/* ============================================= */
+[data-testid="stHorizontalBlock"] [data-testid="stImage"] img {
+    height: 180px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    border-radius: 10px;
+}
+
+[data-testid="stHorizontalBlock"] [data-testid="stImage"] {
+    display: flex;
+    justify-content: center;
+}
+
+/* ============================================= */
+/* DOWNLOAD BUTTON - Fix visibility & hover state */
+/* ============================================= */
+.stDownloadButton button {
+    background-color: #D4A24C !important;
+    color: #1B4332 !important;
+    font-weight: 700 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 10px 20px !important;
+}
+
+.stDownloadButton button:hover {
+    background-color: #E8B96A !important;
+    color: #1B4332 !important;
+}
+
+.stDownloadButton button p {
+    color: #1B4332 !important;
+}
+
+.stDownloadButton button:hover p {
+    color: #1B4332 !important;
+}
+
+/* ============================================= */
+/* EXPANDER - "How does this work?" section */
+/* ============================================= */
+[data-testid="stExpander"] summary {
+    background-color: rgba(247,244,237,0.08) !important;
+    border-radius: 10px !important;
+    border: 1px solid rgba(212,162,76,0.3) !important;
+}
+
+[data-testid="stExpander"] summary p,
+[data-testid="stExpander"] summary span {
+    color: #F7F4ED !important;
+    font-weight: 600 !important;
+}
+
+[data-testid="stExpander"] summary svg {
+    fill: #F7F4ED !important;
+}
+
+[data-testid="stExpander"] details {
+    background-color: transparent !important;
+}
+
+[data-testid="stExpanderDetails"] {
+    background-color: rgba(247,244,237,0.05) !important;
+    border-radius: 0 0 10px 10px;
+    padding: 12px !important;
+}
