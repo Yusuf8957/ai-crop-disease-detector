@@ -1,22 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;900&family=Inter:wght@400;500;600;700&display=swap');
 
+/* ==========================================================
+   GLOBAL
+   ========================================================== */
+
 html, body, [class*="css"] {
     font-family: 'Inter', sans-serif;
 }
 
-/* Overall app background */
 .stApp {
     background: linear-gradient(180deg, #1B4332 0%, #10241E 100%);
 }
 
-/* Center content width control */
-.block-container {
-    padding-top: 3rem;
-    padding-bottom: 4rem;
-    max-width: 720px;
+/* Hide/blend Streamlit's default top toolbar strip
+   (this was showing up as a stray white/gray line at the top) */
+[data-testid="stHeader"] {
+    background: transparent !important;
+    height: 2.2rem !important;
 }
 
-/* Title */
+[data-testid="stToolbar"] {
+    right: 1rem !important;
+}
+
+.block-container {
+    max-width: 1100px !important;
+    padding-top: 1.2rem !important;
+    padding-bottom: 4rem !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+}
+
+/* ==========================================================
+   HEADINGS
+   ========================================================== */
+
 h1 {
     font-family: 'Fraunces', serif !important;
     color: #F7F4ED !important;
@@ -26,32 +44,296 @@ h1 {
     margin-bottom: 0.2rem !important;
 }
 
-/* Subtitle text under title */
+h2, h3, h4 {
+    font-family: 'Fraunces', serif !important;
+    color: #F7F4ED !important;
+}
+
 .stMarkdown p {
     color: #A9BDAE !important;
     font-size: 1.02rem;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
-/* File uploader label */
-[data-testid="stFileUploaderDropzone"] label,
-.stFileUploader label p {
-    color: #F7F4ED !important;
+/* ==========================================================
+   TOP NAVIGATION
+   ========================================================== */
+
+.brand-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #F7F4ED;
+    border: 2px solid #D4A24C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+}
+
+.brand-name {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+.brand-name span {
+    display: block;
+}
+
+.brand-name span:first-child { color: #D4A24C; }
+.brand-name span:last-child { color: #F7F4ED; }
+
+.nav-divider {
+    border: none;
+    border-top: 1px solid rgba(247, 244, 237, 0.15);
+    margin: 0.6rem 0 1.8rem 0;
+}
+
+/* Nav row buttons: transparent pill style, distinct from action buttons.
+   Force single-line text so labels like "Resources"/"Newsroom" never wrap
+   and push the row height / cause overlap below. */
+[data-testid="column"] .stButton button {
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    color: #C9D6CE !important;
+    font-size: 12px !important;
     font-weight: 600 !important;
+    padding: 8px 4px !important;
+    border-radius: 8px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    min-height: 38px !important;
+    transition: all 0.2s ease !important;
 }
 
-/* Upload box */
+[data-testid="column"] .stButton button p {
+    white-space: nowrap !important;
+    font-size: 12px !important;
+}
+
+[data-testid="column"] .stButton button:hover {
+    color: #D4A24C !important;
+    background: rgba(212, 162, 76, 0.1) !important;
+    border-color: rgba(212, 162, 76, 0.35) !important;
+}
+
+/* ==========================================================
+   SUB-PAGES (About / Projects / Resources / Newsroom / Network)
+   ========================================================== */
+
+.page-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 1.5rem;
+}
+
+.page-icon {
+    font-size: 40px;
+    background: #F7F4ED;
+    border: 2px solid #D4A24C;
+    border-radius: 16px;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.page-title {
+    font-family: 'Fraunces', serif !important;
+    font-size: 2.1rem !important;
+    color: #F7F4ED !important;
+    margin: 0 !important;
+}
+
+/* ==========================================================
+   HERO CARD (professional article-style page header)
+   ========================================================== */
+
+.hero-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    background: #F7F4ED;
+    border-radius: 18px;
+    padding: 32px 36px;
+    box-shadow: 0 12px 34px rgba(0,0,0,0.3);
+    border: 1px solid rgba(212,162,76,0.35);
+    margin-bottom: 1.6rem;
+}
+
+.hero-left { flex: 1; min-width: 0; }
+
+.breadcrumb {
+    color: #6B7C74;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.hero-card .page-title {
+    color: #1B4332 !important;
+    font-size: 2.3rem !important;
+    margin-bottom: 12px !important;
+}
+
+.tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+
+.page-tag {
+    background: #EAF2EC;
+    color: #2D6A4F;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(45,106,79,0.25);
+}
+
+.hero-right { flex-shrink: 0; }
+
+.hero-icon-panel {
+    width: 130px;
+    height: 130px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 62px;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+    border: 2px solid #D4A24C;
+}
+
+@media screen and (max-width: 700px) {
+    .hero-card { flex-direction: column; text-align: center; padding: 24px; }
+    .hero-card .page-title { font-size: 1.7rem !important; }
+    .tag-row { justify-content: center; }
+    .hero-icon-panel { width: 90px; height: 90px; font-size: 42px; }
+}
+
+.page-body {
+    background: #F7F4ED;
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: 0 12px 34px rgba(0,0,0,0.3);
+    border: 1px solid rgba(212,162,76,0.35);
+    margin-bottom: 1.5rem;
+}
+
+.page-body p, .page-body li {
+    color: #2D3B34 !important;
+    font-size: 15.5px;
+    line-height: 1.75;
+    font-family: 'Inter', sans-serif;
+}
+
+.page-body strong {
+    color: #1B4332;
+}
+
+.page-body h4 {
+    color: #1B4332 !important;
+    font-family: 'Fraunces', serif !important;
+    margin-top: 1.2rem;
+}
+
+.page-body ul {
+    padding-left: 1.2rem;
+}
+
+/* ==========================================================
+   CONTACT PAGE
+   ========================================================== */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 1.2rem;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #FFFFFF;
+    border: 1px solid rgba(27, 67, 50, 0.12);
+    border-radius: 14px;
+    padding: 16px 18px;
+    text-decoration: none !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+}
+
+.contact-card:hover {
+    border-color: #D4A24C;
+    box-shadow: 0 10px 24px rgba(212, 162, 76, 0.25);
+    transform: translateY(-2px);
+}
+
+.contact-icon {
+    font-size: 24px;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    background: #EAF2EC;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #6B7C74;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1B4332;
+    word-break: break-word;
+}
+
+@media screen and (max-width: 600px) {
+    .contact-grid { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================
+   FILE UPLOADER
+   ========================================================== */
+
 [data-testid="stFileUploaderDropzone"] {
     background-color: #F7F4ED !important;
     border: 2px dashed #D4A24C !important;
     border-radius: 14px !important;
     transition: border-color 0.2s ease;
 }
+
 [data-testid="stFileUploaderDropzone"]:hover {
     border-color: #E8B96A !important;
 }
 
-/* Browse Files button inside uploader */
+[data-testid="stFileUploaderDropzone"] label,
+.stFileUploader label p {
+    color: #1B4332 !important;
+    font-weight: 600 !important;
+}
+
 [data-testid="stFileUploaderDropzone"] button {
     background-color: #1B4332 !important;
     color: #F7F4ED !important;
@@ -59,16 +341,47 @@ h1 {
     border: none !important;
     font-weight: 600 !important;
 }
+
 [data-testid="stFileUploaderDropzone"] button:hover {
     background-color: #2D6A4F !important;
 }
 
-/* Uploaded image container */
+/* Uploaded file row (thumbnail icon + filename + size) shown
+   after a file is selected — force it visible with dark text
+   on a light card, since it was inheriting invisible/near-white
+   text before. */
+[data-testid="stFileUploaderFile"] {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(27, 67, 50, 0.15) !important;
+    border-radius: 10px !important;
+    padding: 8px 12px !important;
+    margin-top: 8px !important;
+}
+
+[data-testid="stFileUploaderFile"] * {
+    color: #1B4332 !important;
+    fill: #1B4332 !important;
+}
+
+[data-testid="stFileUploaderFileName"] {
+    color: #1B4332 !important;
+    font-weight: 600 !important;
+}
+
+[data-testid="stFileUploaderDropzone"] svg {
+    fill: #1B4332 !important;
+}
+
+/* ==========================================================
+   IMAGES
+   ========================================================== */
+
 [data-testid="stImage"] img {
-    border-radius: 14px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    border-radius: 14px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     margin-top: 0.5rem;
 }
+
 [data-testid="stImage"] figcaption {
     color: #A9BDAE !important;
     font-size: 0.85rem;
@@ -76,19 +389,57 @@ h1 {
     margin-top: 0.4rem;
 }
 
-/* Base card style for all alert boxes */
+/* ==========================================================
+   SAMPLE GALLERY
+   ========================================================== */
+
+[data-testid="stHorizontalBlock"] [data-testid="stImage"] img {
+    height: 200px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+}
+
+[data-testid="stHorizontalBlock"] [data-testid="stImage"] {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+/* ==========================================================
+   ACTION BUTTONS (sample select, feedback, submit)
+   ========================================================== */
+
+.stButton button {
+    background-color: #1B4332 !important;
+    color: #F7F4ED !important;
+    border: 1px solid #D4A24C !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+}
+
+.stButton button:hover {
+    background-color: #2D6A4F !important;
+    color: #FFFFFF !important;
+    border-color: #E8B96A !important;
+}
+
+/* ==========================================================
+   ALERT BOXES
+   ========================================================== */
+
 div[data-testid="stAlertContainer"] {
     border-radius: 12px !important;
     padding: 20px !important;
     margin-top: 14px !important;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
+
 div[data-testid="stAlertContainer"] p {
     font-size: 16px;
     margin: 0 !important;
 }
 
-/* Success box = Disease result (main highlight) */
 div[data-testid="stAlertContainerSuccess"] {
     background-color: #F7F4ED !important;
     border-left: 6px solid #2D6A4F !important;
@@ -100,104 +451,52 @@ div[data-testid="stAlertContainerSuccess"] p {
     font-size: 19px !important;
 }
 
-/* Info box = Treatment */
 div[data-testid="stAlertContainerInfo"] {
     background-color: #EAF2EC !important;
     border-left: 6px solid #D4A24C !important;
 }
-div[data-testid="stAlertContainerInfo"] p {
-    color: #1B4332 !important;
-}
+div[data-testid="stAlertContainerInfo"] p { color: #1B4332 !important; }
 
-/* Warning box = Low confidence */
 div[data-testid="stAlertContainerWarning"] {
     background-color: #FBEFDC !important;
     border-left: 6px solid #C77B26 !important;
 }
-div[data-testid="stAlertContainerWarning"] p {
-    color: #6B4226 !important;
+div[data-testid="stAlertContainerWarning"] p { color: #6B4226 !important; }
+
+/* ==========================================================
+   EXPANDER
+   ========================================================== */
+
+[data-testid="stExpander"] summary {
+    background-color: rgba(247, 244, 237, 0.08) !important;
+    border-radius: 10px !important;
+    border: 1px solid rgba(212, 162, 76, 0.3) !important;
 }
 
-/* Confidence text */
-.stMarkdown strong {
-    color: #F7F4ED;
-}
-
-/* Spinner */
-.stSpinner > div {
+[data-testid="stExpander"] summary p,
+[data-testid="stExpander"] summary span {
     color: #F7F4ED !important;
+    font-weight: 600 !important;
 }
 
-hr {
-    border-color: rgba(247,244,237,0.15) !important;
+[data-testid="stExpander"] summary svg { fill: #F7F4ED !important; }
+
+[data-testid="stExpanderDetails"] {
+    background-color: rgba(247, 244, 237, 0.05) !important;
+    border-radius: 0 0 10px 10px;
+    padding: 12px !important;
 }
 
-/* ============================================= */
-/* RESPONSIVE: TABLET (screens up to 900px wide) */
-/* ============================================= */
-@media screen and (max-width: 900px) {
-    .block-container {
-        max-width: 90%;
-        padding-left: 1.2rem;
-        padding-right: 1.2rem;
-    }
-    h1 {
-        font-size: 2.2rem !important;
-    }
-}
+/* ==========================================================
+   TABLE / DATAFRAME
+   ========================================================== */
 
-/* ============================================= */
-/* RESPONSIVE: MOBILE (screens up to 600px wide) */
-/* ============================================= */
-@media screen and (max-width: 600px) {
-    .block-container {
-        padding-top: 1.5rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        max-width: 100%;
-    }
-    h1 {
-        font-size: 1.7rem !important;
-        letter-spacing: -0.5px;
-    }
-    .stMarkdown p {
-        font-size: 0.9rem !important;
-    }
-    div[data-testid="stAlertContainer"] {
-        padding: 14px !important;
-    }
-    div[data-testid="stAlertContainer"] p {
-        font-size: 14px !important;
-    }
-    div[data-testid="stAlertContainerSuccess"] p {
-        font-size: 16px !important;
-    }
-    [data-testid="stFileUploaderDropzone"] {
-        padding: 10px !important;
-    }
-    [data-testid="stImage"] img {
-        border-radius: 10px;
-    }
-}
-
-/* ============================================= */
-/* RESPONSIVE: VERY SMALL PHONES (up to 380px) */
-/* ============================================= */
-@media screen and (max-width: 380px) {
-    h1 {
-        font-size: 1.4rem !important;
-    }
-}
-
-/* ============================================= */
-/* TABLE STYLING (Recommendation Summary) */
-/* ============================================= */
 [data-testid="stTable"] {
     background-color: #F7F4ED !important;
     border-radius: 14px !important;
     overflow: hidden;
-    box-shadow: 0 10px 28px rgba(0,0,0,0.3);
-    border: 1px solid rgba(212,162,76,0.3);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(212, 162, 76, 0.3);
 }
 
 [data-testid="stTable"] table {
@@ -206,7 +505,6 @@ hr {
     width: 100%;
 }
 
-/* Header row */
 [data-testid="stTable"] th {
     background-color: #1B4332 !important;
     color: #F7F4ED !important;
@@ -220,80 +518,71 @@ hr {
     border-bottom: 3px solid #D4A24C !important;
 }
 
-[data-testid="stTable"] th:first-child {
-    border-right: 2px solid rgba(212,162,76,0.4) !important;
-}
-
-/* Data cells */
 [data-testid="stTable"] td {
     padding: 16px 18px !important;
     font-size: 15px;
     border: none !important;
-    border-bottom: 1px solid rgba(27,67,50,0.1) !important;
+    border-bottom: 1px solid rgba(27, 67, 50, 0.1) !important;
 }
 
-/* Field name column (first column) */
 [data-testid="stTable"] td:first-child {
     background-color: #EAE6DA !important;
     color: #1B4332 !important;
     font-weight: 700 !important;
-    width: 35%;
-    border-right: 2px solid rgba(212,162,76,0.3) !important;
 }
 
-/* Details column (second column) */
 [data-testid="stTable"] td:last-child {
     background-color: #F7F4ED !important;
     color: #2D3B34 !important;
 }
 
-/* Remove border on last row */
-[data-testid="stTable"] tr:last-child td {
-    border-bottom: none !important;
+[data-testid="stDataFrame"] {
+    border-radius: 14px !important;
+    overflow: hidden !important;
 }
 
-/* Alternate subtle shading on details column rows for readability */
-[data-testid="stTable"] tr:nth-child(even) td:last-child {
-    background-color: #FBFAF6 !important;
-}
+/* ==========================================================
+   FEEDBACK (star rating with glow on hover)
+   ========================================================== */
 
-/* "Recommendation Summary" heading */
-h4 {
+div[data-testid="stRadio"] label {
     color: #F7F4ED !important;
-    font-family: 'Fraunces', serif !important;
+    cursor: pointer;
 }
 
-/* "Other Possible Matches" heading + caption */
-.stCaptionContainer, [data-testid="stCaptionContainer"] {
-    color: #A9BDAE !important;
+div[data-testid="stRadio"] [role="radiogroup"] label {
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: all 0.25s ease;
 }
 
-/* Bullet list items (top-3 matches) */
-.stMarkdown ul li {
-    color: #F7F4ED !important;
-}
-.stMarkdown ul li strong {
-    color: #F7F4ED !important;
+div[data-testid="stRadio"] [role="radiogroup"] label p {
+    font-size: 20px !important;
+    transition: all 0.25s ease;
 }
 
-/* ============================================= */
-/* SAMPLE GALLERY - Uniform Image Sizing */
-/* ============================================= */
-[data-testid="stHorizontalBlock"] [data-testid="stImage"] img {
-    height: 180px !important;
-    width: 100% !important;
-    object-fit: cover !important;
-    border-radius: 10px;
+div[data-testid="stRadio"] [role="radiogroup"] label:hover {
+    background: rgba(212, 162, 76, 0.12);
 }
 
-[data-testid="stHorizontalBlock"] [data-testid="stImage"] {
-    display: flex;
-    justify-content: center;
+div[data-testid="stRadio"] [role="radiogroup"] label:hover p {
+    filter: drop-shadow(0 0 6px #D4A24C) drop-shadow(0 0 14px #E8B96A);
+    transform: scale(1.2);
 }
 
-/* ============================================= */
-/* DOWNLOAD BUTTON - Fix visibility & hover state */
-/* ============================================= */
+.stTextArea textarea {
+    background-color: #F7F4ED !important;
+    color: #1B4332 !important;
+    border-radius: 10px !important;
+    border: 1px solid rgba(212, 162, 76, 0.5) !important;
+}
+
+.stTextArea textarea::placeholder { color: #66766E !important; }
+
+/* ==========================================================
+   DOWNLOAD BUTTON
+   ========================================================== */
+
 .stDownloadButton button {
     background-color: #D4A24C !important;
     color: #1B4332 !important;
@@ -308,46 +597,143 @@ h4 {
     color: #1B4332 !important;
 }
 
-.stDownloadButton button p {
-    color: #1B4332 !important;
+/* ==========================================================
+   FOOTER (professional two-tier bar)
+   ========================================================== */
+
+.footer-top {
+    background: #F7F4ED;
+    border-radius: 16px 16px 0 0;
+    padding: 22px 30px;
+    text-align: center;
+    margin-top: 2.5rem;
+    border: 1px solid rgba(212,162,76,0.3);
+    border-bottom: none;
 }
 
-.stDownloadButton button:hover p {
-    color: #1B4332 !important;
+.footer-top-label {
+    color: #6B7C74;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
 }
 
-/* ============================================= */
-/* EXPANDER - "How does this work?" section */
-/* ============================================= */
-[data-testid="stExpander"] summary {
-    background-color: rgba(247,244,237,0.08) !important;
-    border-radius: 10px !important;
-    border: 1px solid rgba(212,162,76,0.3) !important;
+.tech-badge-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-[data-testid="stExpander"] summary p,
-[data-testid="stExpander"] summary span {
-    color: #F7F4ED !important;
-    font-weight: 600 !important;
+.tech-badge {
+    background: #EAF2EC;
+    color: #1B4332;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(27,67,50,0.15);
 }
 
-[data-testid="stExpander"] summary svg {
-    fill: #F7F4ED !important;
+.footer-bottom {
+    background: #10241E;
+    border: 1px solid rgba(212,162,76,0.3);
+    border-radius: 16px 16px 0 0;
+    padding: 22px 30px;
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
-[data-testid="stExpander"] details {
-    background-color: transparent !important;
+.footer-bottom-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-[data-testid="stExpanderDetails"] {
-    background-color: rgba(247,244,237,0.05) !important;
-    border-radius: 0 0 10px 10px;
-    padding: 12px !important;
+.footer-mini-logo { width: 40px; height: 40px; font-size: 20px; }
+
+.footer-bottom-right {
+    display: flex;
+    gap: 10px;
 }
 
-/* ============================================= */
-/* FOOTER CREDIT */
-/* ============================================= */
-.stMarkdown div[style*="text-align: center"] {
-    margin-top: 2rem;
+.social-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(247,244,237,0.08);
+    border: 1px solid rgba(212,162,76,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+}
+
+.social-icon:hover {
+    background: #D4A24C;
+    transform: translateY(-2px);
+}
+
+.footer-copyright {
+    background: #10241E;
+    border-radius: 0 0 16px 16px;
+    border: 1px solid rgba(212,162,76,0.3);
+    border-top: none;
+    text-align: center;
+    padding: 12px;
+    font-size: 12px;
+    color: #7C8C84;
+}
+
+.footer-name {
+    color: #D4A24C;
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.footer-small { color: #A9BDAE; font-size: 12.5px; }
+
+@media screen and (max-width: 600px) {
+    .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+/* ==========================================================
+   SPINNER / HR
+   ========================================================== */
+
+.stSpinner > div { color: #F7F4ED !important; }
+hr { border-color: rgba(247, 244, 237, 0.15) !important; }
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media screen and (max-width: 900px) {
+    .block-container {
+        max-width: 94% !important;
+        padding-left: 1.2rem !important;
+        padding-right: 1.2rem !important;
+    }
+    .brand-name { font-size: 15px; }
+    [data-testid="column"] .stButton button { font-size: 11px !important; padding: 6px 3px !important; }
+    .page-title { font-size: 1.6rem !important; }
+    .page-body { padding: 20px !important; }
+}
+
+@media screen and (max-width: 600px) {
+    .block-container { padding-left: 1rem !important; padding-right: 1rem !important; }
+    h1 { font-size: 1.7rem !important; }
+    [data-testid="stHorizontalBlock"] [data-testid="stImage"] img { height: 150px !important; }
+    div[data-testid="stAlertContainer"] { padding: 14px !important; }
+    div[data-testid="stAlertContainer"] p { font-size: 14px !important; }
 }
