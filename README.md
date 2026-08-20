@@ -9,10 +9,10 @@ The project combines **deep learning, explainable AI, severity analysis, farmer 
 ## 🚀 Live Demo
 
 ### Streamlit Application
-http://127.0.0.1:8501
+https://ai-crop-disease-detector-xaqdebnnbd3q8qy48vcxjb.streamlit.app/
 
 ### WhatsApp Upload Bridge
-http://127.0.0.1:5000/upload
+https://crop-disease-whatsapp.onrender.com
 
 > The WhatsApp upload bridge is designed around the Twilio trial environment and provides a browser-based upload flow for sending leaf images to the AI diagnosis pipeline.
 
