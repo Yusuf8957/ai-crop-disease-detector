@@ -4,3 +4,10 @@ pillow
 numpy
 pandas
 fpdf2
+supabase
+opencv-python-headless
+gTTS
+flask
+twilio
+requests
+scikit-learn

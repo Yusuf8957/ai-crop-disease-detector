@@ -542,6 +542,89 @@ div[data-testid="stAlertContainerWarning"] p { color: #6B4226 !important; }
 }
 
 /* ==========================================================
+   SEVERITY SCORE CARD
+   ========================================================== */
+
+.severity-card {
+    background: #F7F4ED;
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(212, 162, 76, 0.35);
+}
+
+.severity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #1B4332;
+    margin-bottom: 10px;
+}
+
+.severity-pct {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.severity-bar-track {
+    width: 100%;
+    height: 12px;
+    background: #EAE6DA;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.severity-bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    transition: width 0.6s ease;
+}
+
+.severity-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.severity-tag {
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    flex-shrink: 0;
+}
+
+.severity-advice {
+    color: #2D3B34;
+    font-size: 13.5px;
+}
+
+/* ==========================================================
+   VOICE OUTPUT (Hindi audio player)
+   ========================================================== */
+
+[data-testid="stAudio"] {
+    margin-top: 10px;
+    margin-bottom: 6px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+audio {
+    width: 100% !important;
+    border-radius: 10px;
+}
+
+/* ==========================================================
    FEEDBACK (star rating with glow on hover)
    ========================================================== */
 
@@ -708,8 +791,77 @@ div[data-testid="stRadio"] [role="radiogroup"] label:hover p {
 }
 
 /* ==========================================================
-   SPINNER / HR
+   SKELETON LOADER
    ========================================================== */
+
+.skeleton-card {
+    width: 100%;
+    padding: 18px;
+    border-radius: 14px;
+    background: rgba(247, 244, 237, 0.06);
+    border: 1px solid rgba(212, 162, 76, 0.18);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        rgba(247, 244, 237, 0.08) 25%,
+        rgba(247, 244, 237, 0.18) 50%,
+        rgba(247, 244, 237, 0.08) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: 10px;
+}
+
+.skeleton-image {
+    width: 100%;
+    height: 280px;
+    border-radius: 14px;
+    margin-bottom: 18px;
+}
+
+.skeleton-circle {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.skeleton-line {
+    height: 15px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+}
+
+.skeleton-line.long {
+    width: 100%;
+}
+
+.skeleton-line.medium {
+    width: 75%;
+}
+
+.skeleton-line.short {
+    width: 45%;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .skeleton-image {
+        height: 180px;
+    }
+}
 
 .stSpinner > div { color: #F7F4ED !important; }
 hr { border-color: rgba(247, 244, 237, 0.15) !important; }
@@ -736,4 +888,38 @@ hr { border-color: rgba(247, 244, 237, 0.15) !important; }
     [data-testid="stHorizontalBlock"] [data-testid="stImage"] img { height: 150px !important; }
     div[data-testid="stAlertContainer"] { padding: 14px !important; }
     div[data-testid="stAlertContainer"] p { font-size: 14px !important; }
+}
+
+/* ==========================================================
+   TOP NAVIGATION — SAME SIZE FOR ALL BUTTONS
+   ========================================================== */
+
+div[data-testid="stHorizontalBlock"] div[data-testid="stButton"] > button {
+    width: 100% !important;
+    height: 58px !important;
+    min-height: 58px !important;
+    max-height: 58px !important;
+
+    padding: 0 12px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow: hidden !important;
+
+    font-size: 16px !important;
+    line-height: 1 !important;
+
+    box-sizing: border-box !important;
+}
+
+/* Keep navigation text on one line */
+div[data-testid="stHorizontalBlock"] div[data-testid="stButton"] > button p {
+    white-space: nowrap !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
 }
