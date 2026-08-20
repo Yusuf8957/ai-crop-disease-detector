@@ -11,3 +11,4 @@ flask
 twilio
 requests
 scikit-learn
+gunicorn
