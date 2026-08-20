@@ -577,6 +577,111 @@ def load_css(file_path):
 
 
 load_css("style.css")
+# ==========================================================
+# YOUTUBE-STYLE SKELETON LOADING UI
+# ==========================================================
+
+st.markdown("""
+<style>
+
+.skeleton-wrapper {
+    width: 100%;
+    max-width: 1100px;
+    margin: 25px auto;
+    padding: 0 10px;
+}
+
+/* Main large content placeholder */
+.skeleton-main {
+    width: 100%;
+    height: 260px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+}
+
+/* Profile / icon circle */
+.skeleton-circle {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    margin-bottom: 18px;
+}
+
+/* Text placeholders */
+.skeleton-line {
+    height: 14px;
+    border-radius: 8px;
+    margin-bottom: 13px;
+}
+
+.skeleton-line.full {
+    width: 100%;
+}
+
+.skeleton-line.medium {
+    width: 72%;
+}
+
+.skeleton-line.small {
+    width: 42%;
+}
+
+/* Shimmer animation */
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0.06) 25%,
+        rgba(255,255,255,0.16) 50%,
+        rgba(255,255,255,0.06) 75%
+    );
+
+    background-size: 200% 100%;
+
+    animation: skeleton-shimmer 1.5s infinite;
+
+    border-radius: 14px;
+}
+
+@keyframes skeleton-shimmer {
+
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+
+}
+
+/* Loading text */
+.loading-text {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 14px;
+    opacity: 0.65;
+}
+
+</style>
+
+<div class="skeleton-wrapper">
+
+    <div class="skeleton skeleton-main"></div>
+
+    <div class="skeleton skeleton-circle"></div>
+
+    <div class="skeleton skeleton-line full"></div>
+
+    <div class="skeleton skeleton-line medium"></div>
+
+    <div class="skeleton skeleton-line small"></div>
+
+    <div class="loading-text">
+        🌱 Preparing AI Farmer Assistant...
+    </div>
+
+</div>
+""", unsafe_allow_html=True)
 
 
 # ==========================================================
